@@ -1,84 +1,85 @@
-import axios, {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-} from "axios";
-import { JwtVerification } from "../utils/jwt_verification";
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { JwtVerification } from '../utils/jwt_verification'
+import TokenServices from './token.service'
 
-var numberOfPendingCallAPI = 0;
+var numberOfPendingCallAPI = 0
 
-const getAccessToken = () => {
-  const ISSERVER = typeof window === "undefined";
+// const getAccessToken = () => {
+//   const ISSERVER = typeof window === 'undefined'
 
-  if (!ISSERVER) {
-    return localStorage.getItem("accessToken");
-  } else {
-  }
-  return "";
-};
+//   if (!ISSERVER) {
+//     return localStorage.getItem('accessToken')
+//   } else {
+//   }
+//   return ''
+// }
 
-const getRefreshToken = () => {
-  const ISSERVER = typeof window === "undefined";
+// const getRefreshToken = () => {
+//   const ISSERVER = typeof window === 'undefined'
 
-  if (!ISSERVER) {
-    return localStorage.getItem("refreshToken");
-  } else {
-  }
-  return "";
-};
+//   if (!ISSERVER) {
+//     return localStorage.getItem('refreshToken')
+//   } else {
+//   }
+//   return ''
+// }
 
 const ApiClient = () => {
-  const instance: AxiosInstance = axios.create();
+  const instance: AxiosInstance = axios.create({
+    baseURL: import.meta.env.BASE_URL,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+
   /** Axios Request */
   instance.interceptors.request.use(
     async (config: AxiosRequestConfig) => {
-      const accessToken = getAccessToken();
-      const language = "en";
-
-      if (accessToken && JwtVerification(accessToken)) {
-        // do sth
-        config.headers["Authorization"] = `Bearer ${accessToken}`;
-        config.headers["X-Language"] = language;
-        config.headers["Access-Control-Allow-Origin"] = "*";
+      const accessToken = TokenServices.getLocalAccessToken()
+      if (accessToken) {
+        config.headers!['Authorization'] = 'Bearer ' + accessToken
       }
 
-      /** Set Loading */
-      numberOfPendingCallAPI += 1;
+      /** CONFIG LOADING EFFECT */
+      numberOfPendingCallAPI += 1
       // if (config?.loading !== false) {
       //   store.dispatch(setIsLoading(true));
       // }
 
-      return config;
+      return config
     },
     (error: AxiosError) => {
-      console.log("axios use() return error", error);
-      return Promise.reject(error);
+      console.log('axios use() return error', error)
+      return Promise.reject(error)
     }
-  );
+  )
 
   /** Axios Response */
   instance.interceptors.response.use(
     async (response: AxiosResponse) => {
-      numberOfPendingCallAPI -= 1;
+      /** CONFIG LOADING EFFECT */
+      numberOfPendingCallAPI -= 1
       // if (numberOfPendingCallAPI === 0) {
       //   store.dispatch(setIsLoading(false));
       // }
 
-      return response;
+      return response
     },
     (error: AxiosError) => {
-      numberOfPendingCallAPI -= 1;
+      /** CONFIG LOADING EFFECT */
+      numberOfPendingCallAPI -= 1
       // if (numberOfPendingCallAPI === 0) {
       //   store.dispatch(setIsLoading(false));
       // }
-      const refreshToken = getRefreshToken();
 
-      return error;
+      // caseError: Access Token was expired
+      const refreshToken = TokenServices.getLocalRefreshToken()
+
+      return error
     }
-  );
+  )
 
-  return instance;
-};
+  return instance
+}
 
-export default ApiClient;
+export default ApiClient
