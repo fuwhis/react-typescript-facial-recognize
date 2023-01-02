@@ -72,8 +72,8 @@ const ApiClient = () => {
       //   store.dispatch(setIsLoading(false));
       // }
 
-      // caseError: Access Token was expired
       const refreshToken = TokenServices.getLocalRefreshToken()
+      // caseError: Access Token was expired
 
       return error
     }
