@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import StateProvider from './context/StateProvider'
 import Footer from './shared/Footer'
 import ContextApp from './shared/Main'
