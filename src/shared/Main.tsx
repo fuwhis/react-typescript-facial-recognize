@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from "../page/Home";
-import SignUp from "../page/SignUp";
+import Home from "../pages/Home";
+import SignUp from "../pages/SignUp";
 
 const ContextApp = () => {
     return (
        <main>
-         <div className='min-h-screen flex justify-center items-center py-12 px-4 sm:px-6 lg:px-8'>
+         <div className='min-h-min flex justify-center items-center lg:py-12 sm:py-6 px-2 sm:px-6 lg:px-8'>
             <div className="max-w-md w-full space-y-8">
                 <BrowserRouter>
                     <Routes>

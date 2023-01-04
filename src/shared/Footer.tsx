@@ -2,26 +2,26 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <footer className="absolute w-full bg-white sm:p-6 dark:bg-gray-900 inset-x-0 border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6">
-            <div className="lg:flex w-full">
+        <footer className="absolute w-full bg-white sm:p-6 dark:bg-gray-900 inset-x-0 border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 mt-[2rem]">
+            <div className="lg:flex w-full mx-auto">
                 {/* Logo Part */}
-                <div className="mb-6 md:mb-4">
-                    <a href="https://flowbite.com/" className="flex items-center">
-                        <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-8" alt="FlowBite Logo" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Logo</span>
+                <div className="mb-6 md:mb-4 max-sm:pt-[5%] pl-[5%]">
+                    <a href="https://github.com/fuwhis" className="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/29690027?v=4" className="mr-3 h-8" alt="FlowBite Logo" />
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Fuwhis</span>
                     </a>
                 </div>
 
                 {/* Privacy Policy Link */}
-                <div className="grid grid-cols-2 gap-x-[8rem] gap-y-[2rem] lg:grid-cols-3 pl-[35%] flex">
+                <div className="grid grid-cols-2 gap-x-[1rem] gap-y-[2rem] lg:grid-cols-3 lg:pl-[10%] pl-[5%] flex w-full">
                     <div>
                         <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                         <ul className="text-gray-600 dark:text-gray-400">
                             <li className="mb-4">
-                                <a href="https://flowbite.com/" className="hover:underline">Flowbite</a>
+                                <a href="https://faceio.net/" className="hover:underline">FaceIO</a>
                             </li>
                             <li>
-                                <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
+                                <a href="https://tailwindcss.com/" className="hover:underline">Tailwind</a>
                             </li>
                         </ul>
                     </div>
@@ -49,11 +49,12 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* <hr className="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700" />
-                <div className="w-full block border border-sky-500">
-                    <span className="absolute bottom-0 text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.
+
+                <hr className="mx-8 h-px dark:bg-gray-700 mt-[5%]" />
+                <div className="w-full flex justify-center items-end">
+                    <span className="bottom-0 text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" className="hover:underline">By Fuwhis</a>. All Rights Reserved.
                     </span>
-                </div> */}
+                </div>
             </div>
 
 
@@ -87,24 +88,6 @@ const Footer = () => {
             </div> */}
 
         </footer>
-
-        // RESPONSIVE FOOTER TEST
-        // <footer className="flex flex-col bg-gray-800 text-white py-4 block">
-        //     <div className="container mx-auto flex items-center justify-between px-2">
-        //         <div className="text-sm">
-        //             &copy; 2020 Your Company. All rights reserved.
-        //         </div>
-        //         <div className="flex items-center">
-        //             <a href="#" className="text-gray-600 hover:text-gray-400 mr-4">
-        //                 Privacy Policy
-        //             </a>
-        //             <a href="#" className="text-gray-600 hover:text-gray-400">
-        //                 Terms of Use
-        //             </a>
-        //         </div>
-        //     </div>
-        // </footer>
-
     );
 }
 
