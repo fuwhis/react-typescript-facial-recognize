@@ -1,10 +1,10 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import {IUser} from '../@types/user';
-import {handleError} from "../utils/ErrorHandler";
+import { IUser } from '../@types/user';
+import { handleError } from "../utils/ErrorHandler";
 
 const SignUpSchema = yup.object({
     name: yup.string().required(),
@@ -23,7 +23,7 @@ const SignUpForm = () => {
     }, []);
 
     const {
-        register, handleSubmit, formState: {errors}
+        register, handleSubmit, formState: { errors }
     } = useForm<IUser>({
         resolver: yupResolver(SignUpSchema)
     });
