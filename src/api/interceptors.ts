@@ -4,26 +4,6 @@ import TokenServices from './token.service'
 
 var numberOfPendingCallAPI = 0
 
-// const getAccessToken = () => {
-//   const ISSERVER = typeof window === 'undefined'
-
-//   if (!ISSERVER) {
-//     return localStorage.getItem('accessToken')
-//   } else {
-//   }
-//   return ''
-// }
-
-// const getRefreshToken = () => {
-//   const ISSERVER = typeof window === 'undefined'
-
-//   if (!ISSERVER) {
-//     return localStorage.getItem('refreshToken')
-//   } else {
-//   }
-//   return ''
-// }
-
 const ApiClient = () => {
   const instance: AxiosInstance = axios.create({
     baseURL: import.meta.env.BASE_URL,
