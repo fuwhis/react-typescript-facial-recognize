@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { JwtVerification } from '../utils/jwt_verification'
+import { JwtVerification } from '../utils/JwtHandler'
 import TokenServices from './token.service'
 
 var numberOfPendingCallAPI = 0
@@ -17,7 +17,7 @@ const ApiClient = () => {
     async (config: AxiosRequestConfig) => {
       const accessToken = TokenServices.getLocalAccessToken()
       if (accessToken) {
-        config.headers!['Authorization'] = 'Bearer ' + accessToken
+        // config.headers!['Authorization'] = 'Bearer ' + accessToken
       }
 
       /** CONFIG LOADING EFFECT */
