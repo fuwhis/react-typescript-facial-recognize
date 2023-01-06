@@ -13,18 +13,18 @@
     "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\""
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "@tanstack/react-query": "^4.20.2",
     "@tanstack/react-query-devtools": "^4.20.2",
-    "@hookform/resolvers": "^2.9.10",
     "axios": "^1.2.1",
-    "sass": "^1.57.1",
-    "sass-rem": "^3.0.0",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.40.0",
     "react-router-dom": "^6.4.1",
-    "jwt-decode": "^3.1.2",
     "recoil": "^0.7.6",
+    "sass": "^1.57.1",
+    "sass-rem": "^3.0.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
