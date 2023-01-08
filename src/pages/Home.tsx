@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import Login from '../components/Login';
+import Login from '../elements/Login';
 import { userContext } from '../context/StateProvider';
 
 const Home = () => {
   const { state } = useContext(userContext);
 
   return (
-    <div className='flex flex-col '>
+    <div style={{display: 'flex', flexDirection: 'column'}}>
       {!state?.user ? (
         <Login />
       ) : (
