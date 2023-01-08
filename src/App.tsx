@@ -1,15 +1,22 @@
-import './App.scss'
+// import './App.scss'
+import '../src/assets/scss/global.scss'
 import StateProvider from './context/StateProvider'
-import Footer from './shared/Footer'
-import ContextApp from './shared/Main'
-import NavBar from './shared/NavBar'
+// import Footer from './components/Footer'
+// import ContextApp from './components/Main'
+// import NavBar from './components/NavBar'
+
+import Routes from 'routes'
 
 const App: React.FC = () => {
   return (
+    // <StateProvider>
+    //   <NavBar />
+    //   <ContextApp />
+    //   <Footer />
+    // </StateProvider>
+
     <StateProvider>
-      <NavBar />
-      <ContextApp />
-      <Footer />
+      <Routes />
     </StateProvider>
   )
 }
